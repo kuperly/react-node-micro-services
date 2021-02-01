@@ -1,14 +1,17 @@
-.App {
+.app-wrapper {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  .main-title {
+    margin-bottom: 25px;
+  }
   .form-wrapper {
     width: 100%;
   }
 
-  .Results {
+  .results {
     text-decoration: underline;
     font-weight: bold;
     color: cornflowerblue;

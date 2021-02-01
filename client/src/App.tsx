@@ -16,8 +16,9 @@ const MyFormSchema = Yup.object().shape({
     .required("Required"),
 });
 
+const initialValues: MyFormValues = { arrayLength: "" };
+
 const App: FunctionComponent = () => {
-  // const [error, setError] = useState<Object | null>(null);
   const [fetchedData, setFetchedData] = useState<number[] | null>(null);
 
   const handleFormSubmit = async (
@@ -26,6 +27,7 @@ const App: FunctionComponent = () => {
   ) => {
     try {
       const res = await axios.get(`api/array/${formikValues.arrayLength}`);
+      console.log("res", res.data);
       setFetchedData(res.data);
       formikHelper.resetForm();
     } catch (e) {
@@ -36,11 +38,9 @@ const App: FunctionComponent = () => {
     }
   };
 
-  const initialValues: MyFormValues = { arrayLength: "" };
-
   return (
-    <div className="App container">
-      <h1>Insert Number for array length</h1>
+    <div className="app-wrapper container">
+      <h3 className="main-title">Generate array by input number</h3>
       <div className="form-wrapper">
         <Formik
           initialValues={initialValues}
@@ -52,12 +52,13 @@ const App: FunctionComponent = () => {
               <div className="row">
                 <div className="input-group offset-md-3 col-md-6 col-sm-12">
                   <Field
+                    autoComplete="off"
                     type="text"
                     name="arrayLength"
                     className={`form-control ${
                       errors?.arrayLength ? "is-invalid" : ""
                     }`}
-                    placeholder="Fetch array from server"
+                    placeholder="Insert array length"
                   />
                   <div className="input-group-append">
                     <button
@@ -73,7 +74,7 @@ const App: FunctionComponent = () => {
               <div className="text-danger">{errors?.arrayLength}</div>
               {fetchedData ? (
                 <>
-                  <div className="Results">Results: </div>
+                  <div className="results">Results: </div>
                   <div>
                     {fetchedData.length
                       ? fetchedData.map((item) => (
