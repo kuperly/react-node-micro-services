@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .form-wrapper {
+    width: 100%;
+  }
+
+  .Results {
+    text-decoration: underline;
+    font-weight: bold;
+    color: cornflowerblue;
+  }
+}

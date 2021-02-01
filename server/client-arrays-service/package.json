@@ -1,0 +1,29 @@
+{
+  "name": "client-arrays-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.22",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "build": "rimraf ./build && tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}
